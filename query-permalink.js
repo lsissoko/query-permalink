@@ -38,12 +38,12 @@ function QueryPermalink(queryVariable, defaultQueryString) {
   /**
    * Appends the given query string to the current path and navigates to the new URL.
    *
-   * @param {string} terms the query string
+   * @param {string} queryString the query string
    */
   this.loadPage = function(queryString) {
     if (queryString.length > 0) {
       var obj = {};
-      obj[queryVariable] = queryString;
+      obj[queryVariable] = this.squish(queryString);
       location.assign(this.buildUrl("?" + $.param(obj)));
     }
   };

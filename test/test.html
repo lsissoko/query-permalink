@@ -1,0 +1,45 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Query Permalink Test Page</title>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet'>
+  <link href='test.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="wrapper">
+    <br>
+    <h2>Mic Check 1, 2</h2>
+    <table>
+      <tr>
+        <td><h4>Enter values to update the URL</h4></td>
+      </tr>
+      <tr>
+        <td><h4>Try copy/pasting the generated URLs to see the results display at the bottom left change</h4></td>
+      </tr>
+      <tr>
+        <td>
+          <label for="key1">Key 1:&nbsp;&nbsp;</label>
+          <input type="text" name="key1" id="key1" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="key2">Key 2:&nbsp;&nbsp;</label>
+          <input type="text" name="key2" id="key2" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <button id="enter">Enter</button>
+        </td>
+      </tr>
+    </table>
+    <div id="results"></div>
+  </div>
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../qd.js"></script>
+  <script src="../query-permalink.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>
