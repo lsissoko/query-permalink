@@ -2,13 +2,8 @@
 creates query string permalinks of the form: `[protocol]``[server]``[resource]`?`[queryVariable]`=`[queryString]`
 
 ## Usage
+#### Setup
 Add jQuery (2.x), `qd.js`, and `query-permalink.js` to your html page.
-
-#### Pull query string data from a URL
-```js
-var queryString = QP.getQueryString();
-var queryObject = JSON.parse(queryString);
-```
 
 #### Create a permalink
 ```js
@@ -26,6 +21,16 @@ var queryString = JSON.stringify(obj);
 
 // Update the permalink and reload the page
 QP.loadPage(queryString);
+
+// The updated permalink URL is:
+// [protocol][server][resource]/?terms=%7B"key1"%3A"val1"%2C"key2"%3A"val2"%7D
+
+```
+
+#### Pull query string data from the URL
+```js
+var queryString = QP.getQueryString();
+var queryObject = JSON.parse(queryString); // { key1: "val1", key2: "val2" }
 ```
 
 ## Examples
