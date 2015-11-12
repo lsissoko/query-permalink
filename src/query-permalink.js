@@ -1,11 +1,11 @@
 /**
  * Function to create query string permalinks of the form:
- * 
+ *
  *    [protocol][server][resource]/?[queryVariable]=[queryString]
  *
  * The [queryString] portion should be the result of calling JSON.stringify()
  * on an Object variable.
- * 
+ *
  * @param {string} queryVariable      the query string's key name
  * @param {string} defaultQueryString the default query string (optional)
  */
@@ -13,7 +13,7 @@ function QueryPermalink(queryVariable, defaultQueryString) {
 
   /**
    * Removes leading and trailing whitespace and trims remaining whitespace.
-   * 
+   *
    * example:
    * - in:  "   Hello. My     name is Inigo        Montoya.  You killed        my father. Prepare to die.        "
    * - out: "Hello. My name is Inigo Montoya. You killed my father. Prepare to die."
@@ -23,6 +23,20 @@ function QueryPermalink(queryVariable, defaultQueryString) {
   this.squish = function(string) {
     return string.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g, "").replace(/\s+/g, " ");
   };
+
+  /**
+   * Serialize an object for use in a URL query string or Ajax request (similar to jQuery.param()).
+   *
+   * @param {Object} source the object to serialize
+   * @return {string} the serialized object
+   */
+  this.param = function(source) {
+    var array = [];
+    for (var key in source) {
+      array.push(encodeURIComponent(key) + "=" + encodeURIComponent(source[key]));
+    }
+    return array.join("&");
+  }
 
   /**
    * Returns the result of appending a given string to the current path.
@@ -44,7 +58,7 @@ function QueryPermalink(queryVariable, defaultQueryString) {
     if (queryString.length > 0) {
       var obj = {};
       obj[queryVariable] = this.squish(queryString);
-      location.assign(this.buildUrl("?" + $.param(obj)));
+      location.assign(this.buildUrl("?" + this.param(obj)));
     }
   };
 

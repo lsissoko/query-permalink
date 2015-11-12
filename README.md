@@ -1,9 +1,19 @@
-# query-permalink.js
-creates query string permalinks of the form: `[protocol]``[server]``[resource]`?`[queryVariable]`=`[queryString]`
+# QueryPermalink
+JavaScript function that creates query string permalinks of the form: `[protocol]``[server]``[resource]`?`[queryVariable]`=`[queryString]`
 
 ## Usage
 #### Setup
-Add jQuery (2.x), `qd.js`, and `query-permalink.js` to your html page.
+Download the contents of `/src` and add them to your page:
+```html
+<body>
+    ...
+    <!-- scripts -->
+    ...
+    <script src="qd.js"></script>
+    <script src="query-permalink.js"></script>
+    ...
+</body>
+```
 
 #### Create a permalink
 ```js
