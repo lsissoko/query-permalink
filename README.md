@@ -44,6 +44,6 @@ var queryObject = JSON.parse(queryString); // { key1: "val1", key2: "val2" }
 ```
 
 ## Examples
-- `test\test.html`
+- the `/test` directory
 - http://laminesissoko.com/capitolwords/
 - http://laminesissoko.com/music-timeline/
