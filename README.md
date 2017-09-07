@@ -1,5 +1,5 @@
 # QueryPermalink
-JavaScript function that creates query string permalinks of the form: `[protocol]``[server]``[resource]`?`[queryVariable]`=`[queryString]`
+JavaScript function that creates query string permalinks of the form: `[protocol][server][resource]?[queryVariable]=[queryString]`
 
 ## Usage
 #### Setup
@@ -44,6 +44,4 @@ var queryObject = JSON.parse(queryString); // { key1: "val1", key2: "val2" }
 ```
 
 ## Examples
-- the `/test` directory
-- http://laminesissoko.com/capitolwords/
-- http://laminesissoko.com/music-timeline/
+See the `/test` directory
