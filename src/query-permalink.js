@@ -15,13 +15,13 @@ function QueryPermalink(queryVariable, defaultQueryString) {
    * Removes leading and trailing whitespace and trims remaining whitespace.
    *
    * example:
-   * - in:  "   Hello. My     name is Inigo        Montoya.  You killed        my father. Prepare to die.        "
-   * - out: "Hello. My name is Inigo Montoya. You killed my father. Prepare to die."
+   * - in:  '   Hello. My     name is Inigo        Montoya.  You killed        my father. Prepare to die.        '
+   * - out: 'Hello. My name is Inigo Montoya. You killed my father. Prepare to die.'
    *
-   * @param {string} string the string to "squish"
+   * @param {string} string the string to 'squish'
    */
   this.squish = function(string) {
-    return string.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g, "").replace(/\s+/g, " ");
+    return string.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g, '').replace(/\s+/g, ' ');
   };
 
   /**
@@ -33,20 +33,20 @@ function QueryPermalink(queryVariable, defaultQueryString) {
   this.param = function(source) {
     var array = [];
     for (var key in source) {
-      array.push(encodeURIComponent(key) + "=" + encodeURIComponent(source[key]));
+      array.push(encodeURIComponent(key) + '=' + encodeURIComponent(source[key]));
     }
-    return array.join("&");
+    return array.join('&');
   }
 
   /**
    * Returns the result of appending a given string to the current path.
    *
    * @param {string} fullQueryString the full query string
-   *                                 (e.g. "?key01=val01" instead of "val01")
+   *                                 (e.g. '?key01=val01' instead of 'val01')
    * @return {string} the resulting URL
    */
   this.buildUrl = function(fullQueryString) {
-    return window.location.href.split("?")[0] + fullQueryString;
+    return window.location.href.split('?')[0] + fullQueryString;
   };
 
   /**
@@ -58,7 +58,7 @@ function QueryPermalink(queryVariable, defaultQueryString) {
     if (queryString.length > 0) {
       var obj = {};
       obj[queryVariable] = this.squish(queryString);
-      location.assign(this.buildUrl("?" + this.param(obj)));
+      location.assign(this.buildUrl('?' + this.param(obj)));
     }
   };
 
@@ -69,11 +69,11 @@ function QueryPermalink(queryVariable, defaultQueryString) {
    * @return {string} the query string
    */
   this.getQueryString = function() {
-    var qs = "";
+    var qs = '';
     var vars = (new QueryData())[queryVariable];
     if (vars !== undefined) {
       qs = this.squish(vars);
-    } else if (defaultQueryString !== undefined && this.squish(defaultQueryString) !== "") {
+    } else if (defaultQueryString !== undefined && this.squish(defaultQueryString) !== '') {
       qs = defaultQueryString;
       this.loadPage(qs);
     }
